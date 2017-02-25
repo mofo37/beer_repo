@@ -3,10 +3,10 @@
 ## Team Name: Undefined
 
 ## Members:
-Morgan Fogarty
-Grayson Meindl
-Keeley Hammond
-Jade Rager
+- Morgan Fogarty
+- Grayson Meindl
+- Keeley Hammond
+- Jade Rager
 
 ## Pitch:
 We’re developing a trivia game, for one-to-four players.
