@@ -39,39 +39,112 @@ var entertainFour = new Question('In what year was Wu-Tang member Raekwon’s go
 var entertainFive = new Question('Which Hip-Hop artist has acted in films alongside Edward Norton, Jack Black, and Bruce Willis?', 'Mos Def', 'Ludacris', 'Queen Latifah', 'Ice Cube', 'entertainment');
 
 // LOGIC
-//Add sports questions to the DOM - for this test, we're only using sports question #1
-var questionsAppend = document.getElementById('questions');
-questionsAppend.textContent = sportOne.question;
 
-//Event listeners for 'Sports' questions; can be used for all category questions
-var answerDiv = document.getElementById('answers');
-answerDiv.addEventListener('click', clickHandler);
+function generateSports0() {
+  //pull from array of objects
+  var currentQ = sportsQuestions[0];
 
-var a1 = document.getElementById('answer1');
-a1.textContent = sportOne.right;
+  //Add sports questions to the DOM - for this test, we're only using sports question #1
+  var questionsAppend = document.getElementById('questions');
+  questionsAppend.textContent = currentQ.question;
 
-var a2 = document.getElementById('answer2');
-a2.textContent = sportOne.wrongOne;
+  //Event listeners for 'Sports' questions; can be used for all category questions
+  var answerDiv = document.getElementById('answers');
+  answerDiv.addEventListener('click', clickHandler);
 
-var a3 = document.getElementById('answer3');
-a3.textContent = sportOne.wrongTwo;
+  var a1 = document.getElementById('answer1');
+  a1.textContent = currentQ.right;
 
-var a4 = document.getElementById('answer4');
-a4.textContent = sportOne.wrongThree;
+  var a2 = document.getElementById('answer2');
+  a2.textContent = currentQ.wrongOne;
 
-//Event handler for above listeners
-function clickHandler(event) {
-  var clickedAnswer = event.target.textContent;
-  console.log('clickedAnswer = ', clickedAnswer);
+  var a3 = document.getElementById('answer3');
+  a3.textContent = currentQ.wrongTwo;
 
-  if (clickedAnswer === a1.textContent) {
-    alert('Congrats! You got it right!');
-    console.log('Item clicked: ', clickedAnswer);
-  } else if (clickedAnswer === a2.textContent || clickedAnswer === a3.textContent || clickedAnswer === a4.textContent) {
-    alert('Sorry, that\'s not the right answer');
-    console.log('Item clicked: ', clickedAnswer);
-  } else {
-    alert('Please choose an answer.');
+  var a4 = document.getElementById('answer4');
+  a4.textContent = currentQ.wrongThree;
+  //pause
+
+  //Event handler for above listeners
+  function clickHandler(event) {
+    var clickedAnswer = event.target.textContent;
+    console.log('clickedAnswer = ', clickedAnswer);
+
+    if (clickedAnswer === a1.textContent) {
+      alert('Congrats! You got it right!');
+      console.log('Item clicked: ', clickedAnswer);
+      generateSports1(1);
+    } else if (clickedAnswer === a2.textContent || clickedAnswer === a3.textContent || clickedAnswer === a4.textContent) {
+      alert('Sorry, that\'s not the right answer');
+      console.log('Item clicked: ', clickedAnswer);
+      generateSports1(1);
+    } else {
+      alert('Please choose an answer.');
+    }
   }
 }
+
+function generateSports1(questionIndex) {
+  //pull from array of objects
+  var currentQ = sportsQuestions[questionIndex];
+
+  //Add sports questions to the DOM - for this test, we're only using sports question #1
+  var questionsAppend = document.getElementById('questions');
+  questionsAppend.textContent = currentQ.question;
+
+  //Event listeners for 'Sports' questions; can be used for all category questions
+  var oldAnswerDiv = document.getElementById('answers');
+  var answerParent = oldAnswerDiv.parentNode;
+  answerParent.removeChild(oldAnswerDiv);
+  var answerDiv = document.createElement('answers');
+  answerParent.appendChild(answerDiv);
+
+  var a1 = document.createElement('div');
+  a1.id = 'answer1';
+  a1.textContent = currentQ.right;
+  answerDiv.appendChild(a1);
+
+  var a2 = document.createElement('div');
+  a2.id = 'answer2';
+  a2.textContent = currentQ.wrongOne;
+  answerDiv.appendChild(a2);
+
+  var a3 = document.createElement('div');
+  a3.id = 'answer3';
+  a3.textContent = currentQ.wrongTwo;
+  answerDiv.appendChild(a3);
+
+  var a4 = document.createElement('div');
+  a4.id = 'answer4';
+  a4.textContent = currentQ.wrongThree;
+  answerDiv.appendChild(a4);
+
+  //Event handler for above listeners
+  var clickHandler = generateClickHandler(questionIndex);
+  answerDiv.addEventListener('click', clickHandler);
+}
+
+function generateClickHandler(questionIndex) {
+  var a1 = document.getElementById('answer1');
+  var a2 = document.getElementById('answer2');
+  var a3 = document.getElementById('answer3');
+  var a4 = document.getElementById('answer4');
+
+  return function clickHandler(event) {
+    var clickedAnswer = event.target.textContent;
+    console.log('clickedAnswer = ', clickedAnswer);
+
+    if (clickedAnswer === a1.textContent) {
+      alert('Congrats! You got it right!');
+      console.log('Item clicked: ', clickedAnswer);
+      // generateSports1(questionIndex);
+    } else if (clickedAnswer === a2.textContent || clickedAnswer === a3.textContent || clickedAnswer === a4.textContent) {
+      alert('Sorry, that\'s not the right answer');
+      console.log('Item clicked: ', clickedAnswer);
+    } else {
+      alert('Please choose an answer.');
+    }
+  };
+}
+generateSports0();
 
