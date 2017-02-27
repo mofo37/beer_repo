@@ -1,7 +1,7 @@
 'use strict';
 sportsQuestions = [];
 
-// create object 'Question' for all trivia questions
+//Question Constructor Below This Line
 function Question(question, right, wrongOne, wrongTwo, wrongThree, category) {
   this.question = question;
   this.right = right,
@@ -11,7 +11,7 @@ function Question(question, right, wrongOne, wrongTwo, wrongThree, category) {
   this.category = category;
 }
 
-// 'Sports' questions, push to array
+//Sports Questions Below This Line
 var sportOne = new Question('When did Kansas University last win the NCAA National Championship?', '2008', '2012', '1994', '1956', 'sports');
 sportsQuestions.push(sportOne);
 
@@ -27,7 +27,18 @@ sportsQuestions.push(sportFour);
 var sportFive = new Question('Who is the last non-quarterback to win NFL MVP?', 'Adrian Peterson', 'Ray Lewis', 'LaDainian Tomlinson', 'Shaun Alexander', 'sports');
 sportsQuestions.push(sportFive);
 
+//Entertainment Questions Below This Line
+var entertainOne = new Question('When asked what he had done with his life to merit an invitation to the Whitehouse, to which First Lady did Miles Davis respond: “Well, I’ve changed the course of music five or six times. What have you done except f**k the president?”', 'Nancy Reagan', 'Barbara Bush', 'Jackie Kennedy', 'Betty Ford', 'entertainment');
 
+var entertainTwo = new Question('In the film Pineapple Express, which Star Wars creature is referenced by James Franco during his captivity?', 'Rancor', 'Tauntaun', 'Jawa', 'Wookie', 'entertainment');
+
+var entertainThree = new Question('Who wrote the poetry spoken in Beyonce\'s Lemonade film', 'Warsan Shire', 'Roxane Gay', 'Chiminanda Ngozi Adichi', 'bell hooks', 'entertainment');
+
+var entertainFour = new Question('In what year was Wu-Tang member Raekwon’s gold-selling “Only Built for Cuban Linx” released?', '1995', '1994', '1996', '1997', 'entertainment');
+
+var entertainFive = new Question('Which Hip-Hop artist has acted in films alongside Edward Norton, Jack Black, and Bruce Willis?', 'Mos Def', 'Ludacris', 'Queen Latifah', 'Ice Cube', 'entertainment');
+
+// LOGIC
 //Add sports questions to the DOM - for this test, we're only using sports question #1
 var questionsAppend = document.getElementById('questions');
 questionsAppend.textContent = sportOne.question;
