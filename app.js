@@ -1,5 +1,8 @@
 'use strict';
+//Category Arrays
 var sportsQuestions = [];
+var entertainmentQuestions = [];
+var feminismQuestions = [];
 
 //Question Constructor Below This Line
 function Question(question, right, wrongOne, wrongTwo, wrongThree, category) {
@@ -29,14 +32,35 @@ sportsQuestions.push(sportFive);
 
 //Entertainment Questions Below This Line
 var entertainOne = new Question('When asked what he had done with his life to merit an invitation to the Whitehouse, to which First Lady did Miles Davis respond: “Well, I’ve changed the course of music five or six times. What have you done except f**k the president?”', 'Nancy Reagan', 'Barbara Bush', 'Jackie Kennedy', 'Betty Ford', 'entertainment');
+entertainmentQuestions.push(entertainOne);
 
 var entertainTwo = new Question('In the film Pineapple Express, which Star Wars creature is referenced by James Franco during his captivity?', 'Rancor', 'Tauntaun', 'Jawa', 'Wookie', 'entertainment');
+entertainmentQuestions.push(entertainTwo);
 
 var entertainThree = new Question('Who wrote the poetry spoken in Beyonce\'s Lemonade film', 'Warsan Shire', 'Roxane Gay', 'Chiminanda Ngozi Adichi', 'bell hooks', 'entertainment');
+entertainmentQuestions.push(entertainThree);
 
 var entertainFour = new Question('In what year was Wu-Tang member Raekwon’s gold-selling “Only Built for Cuban Linx” released?', '1995', '1994', '1996', '1997', 'entertainment');
+entertainmentQuestions.push(entertainFour);
 
 var entertainFive = new Question('Which Hip-Hop artist has acted in films alongside Edward Norton, Jack Black, and Bruce Willis?', 'Mos Def', 'Ludacris', 'Queen Latifah', 'Ice Cube', 'entertainment');
+entertainmentQuestions.push(entertainFive);
+
+//Feminism Questions Below This Line
+var femOne = new Question('The Equal Rights Amendment was first introduced to Congress in 1923 and intended to guarantee equal rights for women. In what year was this Amendment ratified?', 'It has not yet been ratified', '1977', '1979', '1982', 'feminism');
+feminismQuestions.push(femOne);
+
+var femTwo = new Question('Who are the current female Supreme Court members?', 'Justice Sonya Sotomayor, Justice Ruth Bader Ginsburg, Justice Elena Kagan', 'Justice Notorious R.B.G., Justice Notorious B.I.G., Justice Antonin Scalia', 'Justice Sandra Day O’Connor, Justice Sonya Sotomayor, Justice Ruth Bader Ginsburg', 'Justice Michelle Obama, Justice Condoleeza Rice, Justice Hillary Clinton', 'feminism');
+feminismQuestions.push(femTwo);
+
+var femThree = new Question('Who was the first woman to win the Nobel Prize for Science(first for Physics, then years later in Chemistry)?', 'Marie Curie', 'Ada Lovelace', 'Rachel Carson', 'Sally Ride', 'feminism');
+feminismQuestions.push(femThree);
+
+var femFour = new Question('What is Intersectional Feminism?', 'The view that women experience oppression in varying degrees of intensity.', 'Feminism for cats', 'Black Lives Matter', 'feminism');
+feminismQuestions.push(femFour);
+
+var femFive = new Question('Which feminist author famously wrote, “Caring for myself is not self-indulgence, it is self-preservation, and that is an act of political warfare.” ?', 'Audre Lorde', 'Angela Davis', 'Gloria Steinem', 'Alice Walker', 'feminism');
+feminismQuestions.push(femFive);
 
 // LOGIC
 //Add sports questions to the DOM - for this test, we're only using sports question #1
@@ -64,6 +88,12 @@ for(var key in sportOne) {
     displayPossible.push(sportOne[key]);
     console.log(displayPossible);
   }
+}
+
+var randomNum = 0;
+
+function numGen() {
+  randomNum = Math.random();
 }
 //End Randomizing order of possible answers
 
