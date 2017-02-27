@@ -39,52 +39,7 @@ var entertainFour = new Question('In what year was Wu-Tang member Raekwon’s go
 var entertainFive = new Question('Which Hip-Hop artist has acted in films alongside Edward Norton, Jack Black, and Bruce Willis?', 'Mos Def', 'Ludacris', 'Queen Latifah', 'Ice Cube', 'entertainment');
 
 // LOGIC
-
-function generateSports0() {
-  //pull from array of objects
-  var currentQ = sportsQuestions[0];
-
-  //Add sports questions to the DOM - for this test, we're only using sports question #1
-  var questionsAppend = document.getElementById('questions');
-  questionsAppend.textContent = currentQ.question;
-
-  //Event listeners for 'Sports' questions; can be used for all category questions
-  var answerDiv = document.getElementById('answers');
-  answerDiv.addEventListener('click', clickHandler);
-
-  var a1 = document.getElementById('answer1');
-  a1.textContent = currentQ.right;
-
-  var a2 = document.getElementById('answer2');
-  a2.textContent = currentQ.wrongOne;
-
-  var a3 = document.getElementById('answer3');
-  a3.textContent = currentQ.wrongTwo;
-
-  var a4 = document.getElementById('answer4');
-  a4.textContent = currentQ.wrongThree;
-  //pause
-
-  //Event handler for above listeners
-  function clickHandler(event) {
-    var clickedAnswer = event.target.textContent;
-    console.log('clickedAnswer = ', clickedAnswer);
-
-    if (clickedAnswer === a1.textContent) {
-      alert('Congrats! You got it right!');
-      console.log('Item clicked: ', clickedAnswer);
-      generateSports1(1);
-    } else if (clickedAnswer === a2.textContent || clickedAnswer === a3.textContent || clickedAnswer === a4.textContent) {
-      alert('Sorry, that\'s not the right answer');
-      console.log('Item clicked: ', clickedAnswer);
-      generateSports1(1);
-    } else {
-      alert('Please choose an answer.');
-    }
-  }
-}
-
-function generateSports1(questionIndex) {
+function generateSports(questionIndex) {
   //pull from array of objects
   var currentQ = sportsQuestions[questionIndex];
 
@@ -96,7 +51,8 @@ function generateSports1(questionIndex) {
   var oldAnswerDiv = document.getElementById('answers');
   var answerParent = oldAnswerDiv.parentNode;
   answerParent.removeChild(oldAnswerDiv);
-  var answerDiv = document.createElement('answers');
+  var answerDiv = document.createElement('div');
+  answerDiv.id = 'answers';
   answerParent.appendChild(answerDiv);
 
   var a1 = document.createElement('div');
@@ -137,14 +93,48 @@ function generateClickHandler(questionIndex) {
     if (clickedAnswer === a1.textContent) {
       alert('Congrats! You got it right!');
       console.log('Item clicked: ', clickedAnswer);
-      // generateSports1(questionIndex);
+      if (questionIndex < (sportsQuestions.length - 1)) {
+        generateSports(questionIndex + 1);
+      } else {
+        alert('You won!');
+      }
     } else if (clickedAnswer === a2.textContent || clickedAnswer === a3.textContent || clickedAnswer === a4.textContent) {
       alert('Sorry, that\'s not the right answer');
       console.log('Item clicked: ', clickedAnswer);
+      if (questionIndex < (sportsQuestions.length - 1)) {
+        generateSports(questionIndex + 1);
+      } else {
+        alert('You won!');
+      }
     } else {
       alert('Please choose an answer.');
     }
   };
 }
-generateSports0();
+
+generateSports(0);
+
+function makePanda(noise) {
+  return function pandaSays() {
+    console.log(noise);
+  };
+} 
+
+var pandaSays = makePanda('lol!');
+
+var booboo = makePanda('boo!');
+var susie = makePanda('su!');
+
+var morgan = document.getElementById('Captain Morgan');
+var keeley = document.getElementById('Keeley');
+
+var clicky = function(message) {
+  return function(){    
+    console.log('hello ', message);
+  }; 
+  
+};
+
+morgan.addEventListener('click', clicky('What is going on?'));
+keeley.addEventListener('click', clicky('Kale makes me sad sometimes.'));
 
