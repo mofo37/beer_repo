@@ -47,6 +47,26 @@ questionsAppend.textContent = sportOne.question;
 var answerDiv = document.getElementById('answers');
 answerDiv.addEventListener('click', clickHandler);
 
+//Randomizing order of possible answers NOT COMPLETE
+var displayPossible = [];
+
+for(var key in sportOne) {
+  if(sportOne[key] === sportOne.right){
+    displayPossible.push(sportOne[key]);
+  }
+  if(sportOne[key] === sportOne.wrongOne) {
+    displayPossible.push(sportOne[key]);
+  }
+  if(sportOne[key] === sportOne.wrongTwo) {
+    displayPossible.push(sportOne[key]);
+  }
+  if(sportOne[key] === sportOne.wrongThree) {
+    displayPossible.push(sportOne[key]);
+    console.log(displayPossible);
+  }
+}
+//End Randomizing order of possible answers
+
 var a1 = document.getElementById('answer1');
 a1.textContent = sportOne.right;
 
