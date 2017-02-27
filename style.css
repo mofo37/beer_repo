@@ -1,0 +1,20 @@
+heading {
+  width: 960px;
+}
+
+form {
+  text-align: center;
+}
+
+div {
+  display: block;
+  width: 200px;
+}
+
+#grayson {
+  display: float-left;
+}
+
+#keeley {
+  display: float-left;
+}
