@@ -1,5 +1,5 @@
 'use strict';
-sportsQuestions = [];
+var sportsQuestions = [];
 
 //Question Constructor Below This Line
 function Question(question, right, wrongOne, wrongTwo, wrongThree, category) {
@@ -43,6 +43,10 @@ var entertainFive = new Question('Which Hip-Hop artist has acted in films alongs
 var questionsAppend = document.getElementById('questions');
 questionsAppend.textContent = sportOne.question;
 
+//Event listeners for 'Sports' questions; can be used for all category questions
+var answerDiv = document.getElementById('answers');
+answerDiv.addEventListener('click', clickHandler);
+
 var a1 = document.getElementById('answer1');
 a1.textContent = sportOne.right;
 
@@ -55,24 +59,15 @@ a3.textContent = sportOne.wrongTwo;
 var a4 = document.getElementById('answer4');
 a4.textContent = sportOne.wrongThree;
 
-//Event listeners for 'Sports' questions; can be used for all category questions
-var answerDiv = document.getElementById('');
-answerDiv.addEventListener('click', clickHandler);
-
-var clickOne = document.getElementById('answer1');
-var clickTwo = document.getElementById('answer2');
-var clickThree = document.getElementById('answer3');
-var clickFour = document.getElementById('answer4');
-
 //Event handler for above listeners
 function clickHandler(event) {
-  var clickedAnswer = event.target.getAttribute('src');
+  var clickedAnswer = event.target.textContent;
   console.log('clickedAnswer = ', clickedAnswer);
 
-  if (clickedAnswer === clickOne) {
+  if (clickedAnswer === a1.textContent) {
     alert('Congrats! You got it right!');
     console.log('Item clicked: ', clickedAnswer);
-  } else if (clickedAnswer === clickTwo || clickedAnswer === clickThree || clickedAnswer === clickFour) {
+  } else if (clickedAnswer === a2.textContent || clickedAnswer === a3.textContent || clickedAnswer === a4.textContent) {
     alert('Sorry, that\'s not the right answer');
     console.log('Item clicked: ', clickedAnswer);
   } else {
