@@ -12,7 +12,7 @@ function Question(question, right, wrongOne, wrongTwo, wrongThree, category) {
 }
 
 //Sports Questions Below This Line
-var sportOne = new Question('When did Kansas University last win the NCAA National Championship?', '2008', '2012', '1994', '1956', 'sports');
+var sportOne = new Question('When did The University of Kansas last win the NCAA National Championship?', '2008', '2012', '1994', '1956', 'sports');
 sportsQuestions.push(sportOne);
 
 var sportTwo = new Question('As of June 20, 2016, how many days has it been since the Flyers won the Stanley Cup?', '15,000 days', '25,000 days', '24 days', '3,000 days', 'sports');
