@@ -4,10 +4,6 @@ body {
   background-color: #c3e0c5;
 }
 
-.container {
-  width: 960px;
-}
-
 header {
   text-align: center;
 }
@@ -27,7 +23,8 @@ img {
 
 header img {
   border-radius: 5px;
-  padding: 1px;
+  padding: 5px 0px;
+  background-color: white;
 }
 
 #answers {
@@ -70,4 +67,24 @@ main {
 #keeley,
 #morgan {
   display: inline-block;
+}
+
+.name1,
+.name2,
+.name3,
+.name4 {
+  border: 1px solid black;
+  display: inline-block;
+  width: 150px;
+  height: 25px;
+}
+
+.points1,
+.points2,
+.points3,
+.points4 {
+  border: 1px solid black;
+  display: inline-block;
+  width: 75px;
+  height: 25px;
 }
