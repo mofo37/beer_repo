@@ -85,8 +85,38 @@ for(var key in sportOne) {
 var randomNum = 0;
 
 function numGen() {
-  randomNum = Math.random();
+  return randomNum = Math.floor(Math.random() * 4);
 }
+
+var questA = '';
+var questB = '';
+var questC = '';
+var questD = '';
+
+function getEm() {
+  var ansA = numGen();
+  questA = displayPossible[ansA];
+  console.log(questA);
+  var ansB = numGen();
+  while (ansB === ansA || ansB === ansC || ansB === ansD) {
+    ansB = numGen();
+  }
+  questB = displayPossible[ansB];
+  console.log(questB);
+  var ansC = numGen();
+  while (ansC === ansA || ansC === ansB || ansC === ansD) {
+    ansC = numGen();
+  } 
+  questC = displayPossible[ansC];
+  console.log(questC);
+  var ansD = numGen();
+  while (ansD === ansA || ansD === ansB || ansD === ansC) {
+    ansD = numGen();
+  }
+  questD = displayPossible[ansD];
+  console.log(questD);
+}
+
 //End Randomizing order of possible answers
 
 // FUNCTIONS TO RUN GAME
