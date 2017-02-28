@@ -39,3 +39,25 @@ main {
 #questions {
   text-align: center;
 }
+
+#answer1,
+#answer2,
+#answer3,
+#answer4 {
+  border: 1px solid black;
+  margin: 5px;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: #2f3136;
+  color: white;
+}
+
+
+#answer1:hover,
+#answer2:hover,
+#answer3:hover,
+#answer4:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+}
