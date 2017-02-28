@@ -60,9 +60,8 @@ function scrambleAnswers(i) {
 // Generate user displays
 function generateUsers() {
   // Add user information
-  for(var j = 0; j < allUsers.length; j++) {
-    userFooter = document.getElementById('user-generated');
-
+  var userFooter = document.getElementById('users');
+  for (var j = 0; j < allUsers.length; j++) {
     var uName = document.createElement('div');
     uName.textContent = allUsers[j].name;
     userFooter.appendChild(uName);
@@ -81,7 +80,7 @@ function generateUsers() {
 function generateSports(qIndex) {
   retrieveCategory();
   callUserData();
-  generateUsers();
+  generateUsers();  //this doesn't yet work
   var currentQ = chosenCategory[qIndex];
   scrambleAnswers(qIndex);
 
