@@ -3,11 +3,21 @@
 var sportsQuestions = [];
 var entertainmentQuestions = [];
 var feminismQuestions = [];
-var displayPossible = [];
+var displayPossible = [];   // stores answers from scrambledAnswers();
+var allUsers = []; // declare global for user data
 var questA = '';
 var questB = '';
 var questC = '';
 var questD = '';
+
+function callUserData() {
+  var retrievedUserData = localStorage.getItem('userData');
+  if (retrievedUserData) {
+    function retrieveData(retrievedUserData) {
+      allUsers = JSON.parse(retrievedUserData);
+    }
+  }
+}
 
 //Question Constructor Below This Line
 function Question(question, right, wrongOne, wrongTwo, wrongThree, category) {
@@ -107,7 +117,7 @@ function scrambleAnswers(i) {
 
 // FUNCTIONS TO RUN GAME
 function generateSports(qIndex) {
-  //pull from array of objects
+  callUserData();
   var currentQ = sportsQuestions[qIndex];
   scrambleAnswers(qIndex);
 
