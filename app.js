@@ -25,6 +25,29 @@ function Question(question, right, wrongOne, wrongTwo, wrongThree, category) {
   this.category = category;
 }
 
+//Category Selector CHANGE SPORTSQUESTIONS TO CHOSENCATEGORY LATER IN FILE
+var catSport = document.getElementById(/*filler*/);
+catSport.addEventListener('click', categorySelector());
+var catEnt = document.getElementById(/*filler*/);
+catEnt.addEventListener('click', categorySelector());
+var catFem = document.getElementById(/*filler*/);
+catFem.addEventListener('click', categorySelector());
+
+var chosenCategory = [];
+
+function categorySelector(event) {
+  var clickedCategory = event.target.textContent;
+  if (clickedCategory === catSport.textContent) {
+    chosenCategory = sportsQuestions;
+  }
+  if(clickedCategory === catEnt.textContent) {
+    chosenCategory = entertainmentQuestions;
+  }
+  if(clickedCategory === catFem.textContent) {
+    chosenCategory = feminismQuestions;
+  }
+}
+
 //Sports Questions Below This Line
 var sportOne = new Question('When did The University of Kansas last win the NCAA National Championship?', '2008', '2012', '1994', '1956', 'sports');
 sportsQuestions.push(sportOne);
@@ -182,3 +205,4 @@ function generateClickHandler(qIndex) {
 }
 
 generateSports(0);
+
