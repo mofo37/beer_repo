@@ -12,11 +12,7 @@ var questD = '';
 
 function callUserData() {
   var retrievedUserData = localStorage.getItem('userData');
-  if (retrievedUserData) {
-    function retrieveData(retrievedUserData) {
-      allUsers = JSON.parse(retrievedUserData);
-    }
-  }
+  allUsers = JSON.parse(retrievedUserData);
 }
 
 //Question Constructor Below This Line
