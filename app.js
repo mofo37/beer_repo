@@ -80,6 +80,20 @@ entertainmentQuestions.push(entertainFour);
 var entertainFive = new Question('Which Hip-Hop artist has acted in films alongside Edward Norton, Jack Black, and Bruce Willis?', 'Mos Def', 'Ludacris', 'Queen Latifah', 'Ice Cube', 'entertainment');
 entertainmentQuestions.push(entertainFive);
 
+var entertainSix = new Question('In the 1942 classic Casablanca, Humphrey Bogart’s character Rick Blaine speaks the famous line: “Of all the ____ joints, in all the towns in the world, she walks into mine.”', 'gin', 'whiskey', 'tequila', 'wine', 'entertainment');
+entertainmentQuestions.push(entertainSix);
+
+var entertainSeven = new Question('Dr. Dre isn\'t known for his medical advice, but he suggests that his audiences "Smoke weed" how often?', 'Everyday', 'Twice a week', 'Never', 'Monthly', 'entertainment');
+entertainmentQuestions.push(entertainSeven);
+
+var entertainEight = new Question('Lost in La Mancha is a 2002 documentary about which renowned Sci/Fi and Fantasy director\'s failed attempt to finish a film about the story of Don Quixote?', 'Terry Gilliam', 'J.J. Abrams', 'Guillermo del Toro', 'Ridley Scott', 'entertainment');
+entertainmentQuestions.push(entertainEight);
+
+var entertainNine = new Question('Who was the first ever Black Oscar winner in a category outside of acting?', 'Issac Hayes', 'Stevie Wonder', 'Hattie McDaniel', 'Sidney Poitier', 'entertainment');
+entertainmentQuestions.push(entertainNine);
+
+var entertainTen = new Question('What South-Western town is the setting for the acclaimed AMC television series Breaking Bad', 'Albequerque', 'Santa Fe', 'Phoenix', 'San Antonio', 'entertainment');
+
 //Feminism Questions Below This Line
 var femOne = new Question('The Equal Rights Amendment was first introduced to Congress in 1923 and intended to guarantee equal rights for women. In what year was this Amendment ratified?', 'It has not yet been ratified', '1977', '1979', '1982', 'feminism');
 feminismQuestions.push(femOne);
