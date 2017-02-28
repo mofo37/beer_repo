@@ -3,6 +3,11 @@
 var sportsQuestions = [];
 var entertainmentQuestions = [];
 var feminismQuestions = [];
+var displayPossible = [];
+var questA = '';
+var questB = '';
+var questC = '';
+var questD = '';
 
 //Question Constructor Below This Line
 function Question(question, right, wrongOne, wrongTwo, wrongThree, category) {
@@ -64,36 +69,25 @@ feminismQuestions.push(femFive);
 
 // LOGIC
 //Randomizing order of possible answers NOT COMPLETE
-var displayPossible = [];
 
-for(var key in sportOne) {
-  if(sportOne[key] === sportOne.right){
-    displayPossible.push(sportOne[key]);
+
+function scrambleAnswers(i) {
+  displayPossible = [];
+  displayPossible.push(sportsQuestions[i].right);
+  displayPossible.push(sportsQuestions[i].wrongOne);
+  displayPossible.push(sportsQuestions[i].wrongTwo);
+  displayPossible.push(sportsQuestions[i].wrongThree);
+
+  var randomNum = 0;
+
+  function numGen() {
+    return randomNum = Math.floor(Math.random() * 4);
   }
-  if(sportOne[key] === sportOne.wrongOne) {
-    displayPossible.push(sportOne[key]);
-  }
-  if(sportOne[key] === sportOne.wrongTwo) {
-    displayPossible.push(sportOne[key]);
-  }
-  if(sportOne[key] === sportOne.wrongThree) {
-    displayPossible.push(sportOne[key]);
-    console.log(displayPossible);
-  }
-}
+  questA = '';
+  questB = '';
+  questC = '';
+  questD = '';
 
-var randomNum = 0;
-
-function numGen() {
-  return randomNum = Math.floor(Math.random() * 4);
-}
-
-var questA = '';
-var questB = '';
-var questC = '';
-var questD = '';
-
-function getEm() {
   var ansA = numGen();
   questA = displayPossible[ansA];
   console.log(questA);
@@ -123,6 +117,7 @@ function getEm() {
 function generateSports(questionIndex) {
   //pull from array of objects
   var currentQ = sportsQuestions[questionIndex];
+  scrambleAnswers(questionIndex);
 
   //Add sports questions to the DOM - for this test, we're only using sports question #1
   var questionsAppend = document.getElementById('questions');
@@ -138,22 +133,22 @@ function generateSports(questionIndex) {
 
   var a1 = document.createElement('div');
   a1.id = 'answer1';
-  a1.textContent = currentQ.right;
+  a1.textContent = questA;
   answerDiv.appendChild(a1);
 
   var a2 = document.createElement('div');
   a2.id = 'answer2';
-  a2.textContent = currentQ.wrongOne;
+  a2.textContent = questB;
   answerDiv.appendChild(a2);
 
   var a3 = document.createElement('div');
   a3.id = 'answer3';
-  a3.textContent = currentQ.wrongTwo;
+  a3.textContent = questC;
   answerDiv.appendChild(a3);
 
   var a4 = document.createElement('div');
   a4.id = 'answer4';
-  a4.textContent = currentQ.wrongThree;
+  a4.textContent = questD;
   answerDiv.appendChild(a4);
 
   //Event handler for above listeners
@@ -171,7 +166,7 @@ function generateClickHandler(questionIndex) {
     var clickedAnswer = event.target.textContent;
     console.log('clickedAnswer = ', clickedAnswer);
 
-    if (clickedAnswer === a1.textContent) {
+    if (clickedAnswer === sportsQuestions[questionIndex].right) {
       alert('Congrats! You got it right!');
       console.log('Item clicked: ', clickedAnswer);
       if (questionIndex < (sportsQuestions.length - 1)) {
@@ -179,7 +174,7 @@ function generateClickHandler(questionIndex) {
       } else {
         alert('You won!');
       }
-    } else if (clickedAnswer === a2.textContent || clickedAnswer === a3.textContent || clickedAnswer === a4.textContent) {
+    } else if (clickedAnswer === sportsQuestions[questionIndex].wrongOne || clickedAnswer === sportsQuestions[questionIndex].wrongTwo || clickedAnswer === sportsQuestions[questionIndex].wrongThree) {
       alert('Sorry, that\'s not the right answer');
       console.log('Item clicked: ', clickedAnswer);
       if (questionIndex < (sportsQuestions.length - 1)) {
