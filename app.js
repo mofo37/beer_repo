@@ -68,9 +68,7 @@ var femFive = new Question('Which feminist author famously wrote, “Caring for 
 feminismQuestions.push(femFive);
 
 // LOGIC
-//Randomizing order of possible answers NOT COMPLETE
-
-
+//Randomizing order of possible answers
 function scrambleAnswers(i) {
   displayPossible = [];
   displayPossible.push(sportsQuestions[i].right);
@@ -79,7 +77,6 @@ function scrambleAnswers(i) {
   displayPossible.push(sportsQuestions[i].wrongThree);
 
   var randomNum = 0;
-
   function numGen() {
     return randomNum = Math.floor(Math.random() * 4);
   }
@@ -90,42 +87,38 @@ function scrambleAnswers(i) {
 
   var ansA = numGen();
   questA = displayPossible[ansA];
-  console.log(questA);
   var ansB = numGen();
   while (ansB === ansA || ansB === ansC || ansB === ansD) {
     ansB = numGen();
   }
   questB = displayPossible[ansB];
-  console.log(questB);
   var ansC = numGen();
   while (ansC === ansA || ansC === ansB || ansC === ansD) {
     ansC = numGen();
-  } 
+  }
   questC = displayPossible[ansC];
-  console.log(questC);
   var ansD = numGen();
   while (ansD === ansA || ansD === ansB || ansD === ansC) {
     ansD = numGen();
   }
   questD = displayPossible[ansD];
-  console.log(questD);
 }
-
 //End Randomizing order of possible answers
 
 // FUNCTIONS TO RUN GAME
-function generateSports(questionIndex) {
+function generateSports(qIndex) {
   //pull from array of objects
-  var currentQ = sportsQuestions[questionIndex];
-  scrambleAnswers(questionIndex);
+  var currentQ = sportsQuestions[qIndex];
+  scrambleAnswers(qIndex);
 
-  //Add sports questions to the DOM - for this test, we're only using sports question #1
+  //Add sports questions to the DOM
   var questionsAppend = document.getElementById('questions');
   questionsAppend.textContent = currentQ.question;
 
   //Event listeners for 'Sports' questions; can be used for all category questions
   var oldAnswerDiv = document.getElementById('answers');
   var answerParent = oldAnswerDiv.parentNode;
+  answerParent.id = 'parent';
   answerParent.removeChild(oldAnswerDiv);
   var answerDiv = document.createElement('div');
   answerDiv.id = 'answers';
@@ -152,35 +145,29 @@ function generateSports(questionIndex) {
   answerDiv.appendChild(a4);
 
   //Event handler for above listeners
-  var clickHandler = generateClickHandler(questionIndex);
+  var clickHandler = generateClickHandler(qIndex);
   answerDiv.addEventListener('click', clickHandler);
 }
 
-function generateClickHandler(questionIndex) {
-  var a1 = document.getElementById('answer1');
-  var a2 = document.getElementById('answer2');
-  var a3 = document.getElementById('answer3');
-  var a4 = document.getElementById('answer4');
+function generateClickHandler(qIndex) {
 
   return function clickHandler(event) {
     var clickedAnswer = event.target.textContent;
-    console.log('clickedAnswer = ', clickedAnswer);
+    var printAnswer = document.getElementById('response');
 
-    if (clickedAnswer === sportsQuestions[questionIndex].right) {
-      alert('Congrats! You got it right!');
-      console.log('Item clicked: ', clickedAnswer);
-      if (questionIndex < (sportsQuestions.length - 1)) {
-        generateSports(questionIndex + 1);
+    if (clickedAnswer === sportsQuestions[qIndex].right) {
+      printAnswer.textContent = 'Congrats! You got it right!';
+      if (qIndex < (sportsQuestions.length - 1)) {
+        generateSports(qIndex + 1);
       } else {
-        alert('You won!');
+        window.location.replace('about.html');
       }
-    } else if (clickedAnswer === sportsQuestions[questionIndex].wrongOne || clickedAnswer === sportsQuestions[questionIndex].wrongTwo || clickedAnswer === sportsQuestions[questionIndex].wrongThree) {
-      alert('Sorry, that\'s not the right answer');
-      console.log('Item clicked: ', clickedAnswer);
-      if (questionIndex < (sportsQuestions.length - 1)) {
-        generateSports(questionIndex + 1);
+    } else if (clickedAnswer === sportsQuestions[qIndex].wrongOne || clickedAnswer === sportsQuestions[qIndex].wrongTwo || clickedAnswer === sportsQuestions[qIndex].wrongThree) {
+      printAnswer.textContent = 'Sorry, that\'s not the right answer';
+      if (qIndex < (sportsQuestions.length - 1)) {
+        generateSports(qIndex + 1);
       } else {
-        alert('You won!');
+        window.location.replace('about.html');
       }
     } else {
       alert('Please choose an answer.');
