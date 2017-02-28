@@ -4,9 +4,9 @@
 var allUsers = [];
 
 // create constructor for new user
-function User(name) {
+function User(name, drink) {
   this.name = name;
-  this.drink = 0;
+  this.drink = 'images/' + drink;
   this.score = 0;
 }
 
@@ -19,9 +19,9 @@ userForm.addEventListener('submit', generateUser);
 function generateUser(event) {
   event.preventDefault();
   var userName = event.target.username.value;
-  // var userDrink = event.target.drink.value;
+  var userDrink = event.target.getAttribute('src');
 
-  var newUser = new User(userName);
+  var newUser = new User(userName, userDrink);
   allUsers.push(newUser);
   event.target.username.value = '';
 }
