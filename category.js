@@ -36,6 +36,21 @@ sportsQuestions.push(sportFour);
 var sportFive = new Question('Who is the last non-quarterback to win NFL MVP?', 'Adrian Peterson', 'Ray Lewis', 'LaDainian Tomlinson', 'Shaun Alexander', 'sports');
 sportsQuestions.push(sportFive);
 
+var sportSix = new Question('The 1942 and 1946 FIFA World Cup tournaments were cancelled due to WWII and its aftermath. Which two countries sought to host these events?', 'Nazi Germany & Brazil', 'France & Sweden', 'Argentina & Canada', 'Portugal & Uraguay', 'sports');
+sportsQuestions.push(sportSix);
+
+var sportSeven = new Question('What year was Table Tennis added to the Summer Olympics?', '1988', '1980', '1996', '1972', 'sports');
+sportsQuestions.push(sportSeven);
+
+var sportEight = new Question('Against which MLB team did Hank Aaron hit his 500th homerun?', 'San Fransico Giants', 'Atlanta Braves', 'Milwaukee Brewers', 'Cincinnati Reds', 'sports');
+sportsQuestions.push(sportEight);
+
+var sportNine = new Question('Which current NBA team belonged to the American Basketball Association(ABA) before the league\'s merge with the NBA in 1976', 'Indianna Pacers', 'LA Clippers', 'LA Lakers', 'Chicago Bulls', 'sports');
+sportsQuestions.push(sportNine);
+
+var sportTen = new Question('in 1994, NBA legend Michael Jordan played Double-A minor league baseball for an affiliate of the Chicago White Sox. Which South-Eastern team did he play for?', 'Birminham Barons', 'Charleston Riverdogs', 'Memphis Redbirds', 'Shreveport Captains', 'sports');
+sportsQuestions.push(sportTen);
+
 //Entertainment Questions Below This Line
 var entertainOne = new Question('When asked what he had done with his life to merit an invitation to the Whitehouse, to which First Lady did Miles Davis respond: “Well, I’ve changed the course of music five or six times. What have you done except f**k the president?”', 'Nancy Reagan', 'Barbara Bush', 'Jackie Kennedy', 'Betty Ford', 'entertainment');
 entertainmentQuestions.push(entertainOne);
