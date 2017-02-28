@@ -57,10 +57,31 @@ function scrambleAnswers(i) {
 }
 //End Randomizing order of possible answers
 
+// Generate user displays
+function generateUsers() {
+  // Add user information
+  for(var j = 0; j < allUsers.length; j++) {
+    userFooter = document.getElementById('user-generated');
+
+    var uName = document.createElement('div');
+    uName.textContent = allUsers[j].name;
+    userFooter.appendChild(uName);
+
+    var uDrink = document.createElement('img');
+    uDrink.setAttribute('src', allUsers[j].drink);
+    userFooter.appendChild(uDrink);
+
+    var uScore = document.createElement('div');
+    uScore.textContent = allUsers[j].score;
+    userFooter.appendChild(uScore);
+  }
+}
+
 // FUNCTIONS TO RUN GAME
 function generateSports(qIndex) {
   retrieveCategory();
   callUserData();
+  generateUsers();
   var currentQ = chosenCategory[qIndex];
   scrambleAnswers(qIndex);
 
