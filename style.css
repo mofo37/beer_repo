@@ -151,6 +151,41 @@ main {
   width: auto;
 }
 
+div #play {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+  
+}
+
+input[type=radio] {
+  display:none;
+}
+:checked + label {
+  outline: 3px solid green;
+}
+label {
+  display: inline-block;
+  height: 54px;
+  width: 65px;
+}
+
+#cocktail + label {
+  background-image: url("images/cocktail.png");
+}
+
+#tea + label {
+  background-image: url("images/tea.png");
+}
+
+#wine-glass + label {
+background-image: url("images/wine-glass.png");
+}
+
+#beer-mug + label {
+background-image: url("images/beer-mug.png");
+}
+
 #play,
 #submit {
   padding: 10px;

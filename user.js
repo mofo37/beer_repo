@@ -19,26 +19,31 @@ userForm.addEventListener('submit', generateUser);
 function generateUser(event) {
   event.preventDefault();
   var userName = event.target.username.value;
-  var userDrink = event.target.getAttribute('src');
+  var radios = event.target.avatar;
+  for (var i = 0; i < radios.length; i++) {
+    if (radios[i].checked === true) {
+      var drinkSelected = (radios[i].value);
+    }
+  }
+  var userDrink = drinkSelected;
 
   var newUser = new User(userName, userDrink);
   allUsers.push(newUser);
   event.target.username.value = '';
+
+  // Store All User Data to localStorage
+  function storeData() {
+    var userDataJSON = JSON.stringify(allUsers);
+    localStorage.setItem('userData', userDataJSON);
+  }
+
+  // Start Game and Retrieve Data
+  var startButton = document.getElementById('play');
+  startButton.addEventListener('click', loadGame);
+
+  function loadGame(event) {
+    event.preventDefault();
+    storeData();
+    window.location.replace('category.html');
+  }
 }
-
-// Store All User Data to localStorage
-function storeData() {
-  var userDataJSON = JSON.stringify(allUsers);
-  localStorage.setItem('userData', userDataJSON);
-}
-
-// Start Game and Retrieve Data
-var startButton = document.getElementById('play');
-startButton.addEventListener('click', loadGame);
-
-function loadGame(event) {
-  event.preventDefault();
-  storeData();
-  window.location.replace('category.html');
-}
-
