@@ -10,6 +10,7 @@ header {
   text-align: center;
   background: rgba(20, 30, 26, .25);
   padding: 5px;
+  overflow: hidden;
 }
 
 form {
@@ -29,10 +30,21 @@ header img {
   border-radius: 5px;
   padding: 5px 0px;
   background-color: white;
+  float: left;
+  margin: 7px;
+  height: 55px;
 }
 
 #answers {
   text-align: center;
+}
+
+h3 {
+  width: 375px;
+  font-size: 1.1em;
+  line-height: 1.25em;
+  text-align: center;
+  margin: auto;
 }
 
 main {
@@ -91,4 +103,35 @@ main {
   display: inline-block;
   width: 75px;
   height: 25px;
+}
+
+#buddies {
+  float: right;
+  margin: 30px;
+  text-decoration: none;
+  color: #2f3a36;
+}
+
+#user-form {
+  margin: 30px;
+}
+
+#avatars {
+  display: inline-block;
+  width: 600px;
+}
+
+#cocktail,
+#tea,
+#wine-glass,
+#beer-mug {
+  display: inline-block;
+  margin: 5px;
+}
+
+div #play {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+  
 }
