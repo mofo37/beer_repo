@@ -161,9 +161,11 @@ input[type=radio] {
   display: none;
   visibility: hidden;
 }
+
 :checked + label {
   outline: 3px solid green;
 }
+
 label {
   display: inline-block;
   height: 54px;
@@ -179,11 +181,11 @@ label {
 }
 
 #wine-glass + label {
-background-image: url("images/wine-glass.png");
+  background-image: url("images/wine-glass.png");
 }
 
 #beer-mug + label {
-background-image: url("images/beer-mug.png");
+  background-image: url("images/beer-mug.png");
 }
 
 #play,
@@ -200,4 +202,14 @@ background-image: url("images/beer-mug.png");
 
 #start {
   margin: 0 auto;
+}
+
+#feminism,
+#entertainment,
+#sports {
+  font-size: 40px;
+  font-weight: bold;
+  border: 1px solid #2f3a36;
+  margin: 5px;
+  width: 300px;
 }
