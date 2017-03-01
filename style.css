@@ -155,11 +155,11 @@ div #play {
   display: inline-block;
   text-align: center;
   margin: 10px;
-  
 }
 
 input[type=radio] {
-  display:none;
+  display: none;
+  visibility: hidden;
 }
 :checked + label {
   outline: 3px solid green;
@@ -196,4 +196,8 @@ background-image: url("images/beer-mug.png");
   background-color: #2f3a36;
   color:  #c3e0c5;
   background: rgba(20, 30, 26, .75);
+}
+
+#start {
+  margin: 0 auto;
 }
