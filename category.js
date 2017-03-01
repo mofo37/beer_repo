@@ -98,6 +98,21 @@ feminismQuestions.push(femFour);
 var femFive = new Question('Which feminist author famously wrote, “Caring for myself is not self-indulgence, it is self-preservation, and that is an act of political warfare.” ?', 'Audre Lorde', 'Angela Davis', 'Gloria Steinem', 'Alice Walker', 'feminism');
 feminismQuestions.push(femFive);
 
+var femSix = new Question('Which Riot Grrrl said, “There’s just as many different kinds of feminism as there are women in the world.”?', 'Kathleen Hanna', 'Tobi Vail', 'Corin Tucker', 'Kathi Wilcox', 'feminism');
+feminismQuestions.push(femSix);
+
+var femSeven = new Question('Who created “Feminist Frequency,” a pop culture critique site with a feminist bent?', 'Anita Sarkeesian', 'Alona King', 'Ellen Pao', 'Susan Wojcicki', 'feminism');
+feminismQuestions.push(femSeven);
+
+var femEight = new Question('What does the term Anarcha feminist mean?', 'An Anarchist Feminist', 'A Feminist OB/GYN', 'A Spider Feminist', 'The Queen of all Feminists', 'feminism');
+feminismQuestions.push(femEight);
+
+var femNine = new Question('Where was Beyonce’s “Lemonade” filmed?', 'New Orleans', 'Houston', 'New York', 'Los Angeles', 'feminism');
+feminismQuestions.push(femNine);
+
+var femTen = new Question('Assata Shakur is most known for what?','All listed answers', 'Being a lead-member of the Black Panther Party in Harlem', 'Being named to the FBI’s most wanted list in 2013', 'Being Tupac Shakur’s godmother', 'feminism');
+feminismQuestions.push(femTen);
+
 //Category Selector CHANGE SPORTSQUESTIONS TO CHOSENCATEGORY LATER IN APP.JS
 function chooseCategory() {
   var catSport = document.getElementById('sports');
