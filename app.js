@@ -76,11 +76,18 @@ function generateUsers() {
   }
 }
 
+// Clear previous user displays
+function clearUsers() {
+  var userFooter = document.getElementById('users');
+  userFooter.innerHTML = '';
+}
+
 // FUNCTIONS TO RUN GAME
 function generateSports(qIndex) {
   retrieveCategory();
   callUserData();
-  generateUsers();  //this doesn't yet work
+  clearUsers();   //this clears previous users in the footer 
+  generateUsers();  //this generates the score everytime
   var currentQ = chosenCategory[qIndex];
   scrambleAnswers(qIndex);
 
